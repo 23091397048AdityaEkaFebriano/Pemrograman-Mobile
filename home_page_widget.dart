@@ -79,3 +79,46 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       ),
     );
   }
+
+    // Fungsi untuk membuat widget Container dengan gambar dan teks quote.
+  Widget buildQuoteContainer(String imagePath, String quote, Color color) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0), // Padding luar container sebesar 10.
+      child: Container(
+        width: double.infinity, // Lebar container memenuhi lebar layar.
+        height: 100, // Tinggi container 100.
+        decoration: BoxDecoration(
+          color: color, // Warna background container.
+          borderRadius: BorderRadius.circular(14), // Sudut border melengkung sebesar 14.
+        ),
+        child: Row(
+          // Row untuk menampilkan gambar di sebelah kiri dan teks di sebelah kanan.
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0), // Padding sekitar gambar sebesar 10.
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8), // Sudut gambar melengkung sebesar 8.
+                child: Image.asset(
+                  imagePath, // Menampilkan gambar sesuai path yang diberikan.
+                  width: 70, // Lebar gambar 70.
+                  fit: BoxFit.cover, // Gambar memenuhi area tanpa terdistorsi.
+                ),
+              ),
+            ),
+            Expanded(
+              // Expanded agar teks memenuhi sisa ruang di dalam Row.
+              child: Text(
+                quote, // Teks quote yang diberikan sebagai parameter.
+                textAlign: TextAlign.start, // Teks diratakan ke kiri.
+                style: GoogleFonts.inter( // Menggunakan font Inter dari Google Fonts.
+                  color: Colors.white, // Warna teks putih.
+                  fontStyle: FontStyle.italic, // Teks ditampilkan dalam bentuk italic.
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

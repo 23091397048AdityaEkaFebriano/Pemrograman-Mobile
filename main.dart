@@ -13,4 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Fungsi build yang mendefinisikan UI dari widget ini.
-    return MaterialApp(  
+    return MaterialApp(
+            debugShowCheckedModeBanner: false, // Menyembunyikan banner debug di pojok kanan atas saat mode debug.
+      title: 'My Flutter App', // Menentukan judul aplikasi yang akan muncul di task manager.
+      theme: ThemeData(
+        primarySwatch: Colors.blue, // Mengatur tema aplikasi dengan warna utama biru.
+      ),
+      home: const HomePageWidget(), // Menentukan halaman utama aplikasi, menggunakan widget HomePageWidget.
+    );
+  }
+}
